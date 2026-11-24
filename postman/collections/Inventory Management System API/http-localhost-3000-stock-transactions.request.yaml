@@ -1,0 +1,25 @@
+$kind: http-request
+name: http://localhost:3000/stock-transactions
+description: ""
+url: http://localhost:3000/stock-transactions
+method: POST
+body:
+  type: json
+  content: "\r
+
+    \r
+
+    {\r
+
+    \  \"materialId\": 2,\r
+
+    \  \"employeeId\": 3,\r
+
+    \  \"transactionType\": \"OUT\",\r
+
+    \  \"quantity\": 999999,\r
+
+    \  \"remarks\": \"Testing insufficient stock validation\"\r
+
+    }\r\n"
+order: 6000
