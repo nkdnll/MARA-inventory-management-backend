@@ -91,18 +91,43 @@ export class MaterialsService {
     return material;
   }
 
-  async update(id: number, dto: UpdateMaterialDto) {
-    const material = await this.findOne(id);
+ 
+async update(id: number, dto: UpdateMaterialDto) {
+  const material = await this.findOne(id);
 
-    await this.validateReferences(
-      dto.categoryId ?? material.categoryId,
-      dto.supplierId ?? material.supplierId,
-    );
+  await this.validateReferences(
+    dto.categoryId ?? material.categoryId,
+    dto.supplierId ?? material.supplierId,
+  );
 
-    Object.assign(material, dto);
+  const allowedUpdates: Partial<Material> = {};
 
-    return this.materialRepository.save(material);
+  if (dto.materialName !== undefined) {
+    allowedUpdates.materialName = dto.materialName;
   }
+
+  if (dto.categoryId !== undefined) {
+    allowedUpdates.categoryId = dto.categoryId;
+  }
+
+  if (dto.supplierId !== undefined) {
+    allowedUpdates.supplierId = dto.supplierId;
+  }
+
+  if (dto.unit !== undefined) {
+    allowedUpdates.unit = dto.unit;
+  }
+
+  if (Object.keys(allowedUpdates).length > 0) {
+    await this.materialRepository.update(
+      id,
+      allowedUpdates,
+    );
+  }
+
+  return this.findOne(id);
+}
+
 
   async remove(id: number) {
     const material = await this.findOne(id);
