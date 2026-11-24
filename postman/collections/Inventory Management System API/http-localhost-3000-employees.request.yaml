@@ -1,0 +1,23 @@
+$kind: http-request
+name: http://localhost:3000/employees
+description: ""
+url: http://localhost:3000/employees
+method: POST
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"employeeName\": \"Juan Dela Cruz\",\r
+
+    \  \"email\": \"juan@example.com\",\r
+
+    \  \"contact\": \"09123456789\",\r
+
+    \  \"position\": \"Inventory Staff\"\r
+
+    }\r
+
+    \  "
+order: 1000
