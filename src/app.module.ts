@@ -10,6 +10,9 @@ import { SuppliersModule } from './suppliers/suppliers.module';
 import { CategoriesModule } from './categories/categories.module';
 import { MaterialsModule } from './materials/materials.module';
 import { StockTransactionsModule } from './stock-transactions/stock-transactions.module';
+import { InventoryAlertsModule } from './inventory-alerts/inventory-alerts.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -43,6 +46,12 @@ import { StockTransactionsModule } from './stock-transactions/stock-transactions
     MaterialsModule,
 
     StockTransactionsModule,
+
+    InventoryAlertsModule,
+
+    UsersModule,
+
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -8,6 +8,8 @@ import { Supplier } from '../suppliers/supplier.entity';
 
 import { MaterialsController } from './materials.controller';
 import { MaterialsService } from './materials.service';
+import { AuthModule } from '../auth/auth.module';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { MaterialsService } from './materials.service';
       Category,
       Supplier,
     ]),
+      AuthModule,
+      UsersModule,
   ],
   controllers: [MaterialsController],
   providers: [MaterialsService],
