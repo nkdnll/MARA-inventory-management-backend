@@ -1,0 +1,23 @@
+$kind: http-request
+name: http://localhost:3000/inventory-alerts
+description: ""
+url: http://localhost:3000/inventory-alerts/low-stock
+method: GET
+body:
+  type: json
+  content: "\r
+
+    {\r
+
+    \  \"materialId\": 2,\r
+
+    \  \"employeeId\": 3,\r
+
+    \  \"transactionType\": \"OUT\",\r
+
+    \  \"quantity\": 115,\r
+
+    \  \"remarks\": \"Testing automatic low stock alert\"\r
+
+    }\r\n"
+order: 7000
